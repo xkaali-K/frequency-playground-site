@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Frequency Playground — Modular Audio & Visual Lab</title>
+  <meta name="description" content="Generate, combine, and visualize sound frequencies with real-time waveforms, resonance tools, and sacred-geometry views.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f15;
+      --panel: rgba(255,255,255,0.06);
+      --ink: #e6eefc;
+      --muted: #a7b5cf;
+      --accent: #6aa0ff;
+      --glow: 0 0 40px rgba(106,160,255,.35);
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(1200px 800px at 70% -10%, rgba(106,160,255,0.15), transparent),
+                  radial-gradient(800px 600px at 10% 110%, rgba(106,160,255,0.12), transparent),
+                  var(--bg);
+      line-height: 1.6;
+    }
+    .wrap { max-width: 1080px; padding: 24px; margin: 0 auto; }
+    header {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 18px 20px; background: var(--panel); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius); backdrop-filter: blur(10px);
+      box-shadow: var(--glow);
+    }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .logo {
+      width: 42px; height: 42px; border-radius: 10px;
+      background: linear-gradient(135deg, #6aa0ff, #8fd3ff);
+      box-shadow: 0 8px 24px rgba(106,160,255,.35), inset 0 0 20px rgba(255,255,255,.3);
+      position: relative;
+    }
+    .logo:after {
+      content: ""; position: absolute; inset: 9px; border-radius: 6px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.6), transparent 60%);
+      mix-blend-mode: screen;
+    }
+    .brand h1 { margin: 0; font-size: 18px; letter-spacing: 0.2px; }
+    .cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: linear-gradient(180deg, #6aa0ff, #487ee8);
+      color: white; padding: 10px 16px; border-radius: 12px; border: 0; cursor: pointer;
+      font-weight: 700; text-decoration: none;
+      box-shadow: 0 10px 30px rgba(106,160,255,.35);
+    }
+    .hero {
+      margin-top: 28px; padding: 40px; border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .hero h2 { margin: 0 0 10px; font-size: 36px; line-height: 1.15; }
+    .hero p.lead { color: var(--muted); font-size: 18px; margin-top: 8px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+    .card {
+      background: var(--panel); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius); padding: 16px; min-height: 140px;
+    }
+    .tag { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 12px;
+      color: #cfe1ff; border: 1px solid rgba(106,160,255,.4); background: rgba(106,160,255,.1);
+    }
+    .section { margin-top: 42px; }
+    .screens {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 16px;
+    }
+    .shot {
+      border-radius: 14px; border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      min-height: 220px; display: flex; align-items: center; justify-content: center;
+      color: var(--muted); font-size: 14px; text-align: center; padding: 20px;
+    }
+    footer { margin: 40px 0 24px; color: var(--muted); font-size: 13px; text-align: center; }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      .screens { grid-template-columns: 1fr; }
+      .hero h2 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo"></div>
+        <div>
+          <h1>Frequency Playground</h1>
+          <div class="tag">Unfinished desktop app — codebase for sale</div>
+        </div>
+      </div>
+      <a class="cta" href="#contact">Inquire to Buy →</a>
+    </header>
+
+    <section class="hero">
+      <h2>Modular Audio & Visual Lab for Frequencies, Resonance & Sacred Geometry</h2>
+      <p class="lead">
+        Generate, combine, and visualize sound frequencies with real‑time waveforms,
+        resonance markers, and frequency‑driven geometry. Built for creators, educators, and tinkerers.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <strong>What works today</strong><br>
+          Generator (0–20k Hz), Combiner (up to 3 tones), Resonance Tool (prototype),
+          Sacred Geometry viewer (2D/3D), Waveform animation, 3D/Fractal view.
+        </div>
+        <div class="card">
+          <strong>Known issues</strong><br>
+          Occasional audio crash after a few seconds; needs true multi‑tone mixing;
+          3D/fractal perf; per‑tab Play/Stop + volume; smoother waveform sync.
+        </div>
+        <div class="card">
+          <strong>Tech</strong><br>
+          Python · PyQt/Tkinter · NumPy · sounddevice/PyAudio · Matplotlib/VisPy · OpenGL
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3>Feature Screens (mock)</h3>
+      <div class="screens">
+        <div class="shot">Generator — single tone with waveform display</div>
+        <div class="shot">Combiner — 3 tones, precise inputs & amplitude indicators</div>
+        <div class="shot">Resonance Tool — sweep & visual resonance marker</div>
+        <div class="shot">Sacred Geometry — frequency‑driven patterns (2D/3D)</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3>Roadmap (2–4 weeks)</h3>
+      <div class="grid">
+        <div class="card"><strong>Stability</strong><br>Callback‑based audio streaming, graceful teardown, true mixing.</div>
+        <div class="card"><strong>Performance</strong><br>GPU‑accelerated visuals (VisPy), lower‑poly 3D, decoupled render loop.</div>
+        <div class="card"><strong>Packaging</strong><br>Windows/macOS builds; plugin API; preset manager; lesson mode.</div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <h3>Interested?</h3>
+      <div class="card">
+        <p><strong>Asking Price:</strong> $2,500 (open to offers $1,250–$3,000)</p>
+        <p>Sale includes full source code, assets, roadmap & tech notes, and a short handover.</p>
+        <p><em>Contact:</em> Replace with your email or Flippa listing URL once live.</p>
+      </div>
+    </section>
+
+    <footer>© <span id="y"></span> Frequency Playground — Unfinished app project (codebase). All rights reserved.</footer>
+  </div>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
